@@ -1,2 +1,2 @@
 # ReactiveIOSTest
-A simple example of using React with Xamarin-IOS
+A simple example of using ReactUI with Xamarin.IOS
