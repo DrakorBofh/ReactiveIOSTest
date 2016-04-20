@@ -39,14 +39,13 @@ namespace ReactiveIOSTest
 			
 		public void GoToScreenOne ()
 		{
-			var viewModel = new ScreenOneViewModel(Color.White.GetPalletteRandom(), Color.White.GetPalletteRandom(), Color.White.GetPalletteRandom());
+			var viewModel = new ScreenOneViewModel();
 			this.GoTo<ScreenOne> (viewModel);
 		}
 
 		public void GoToScreenTwo ()
 		{
-			Random rnd = new Random();
-			var viewModel = new ScreenTwoViewModel(rnd.Next(0, 360),rnd.Next(0, 360),rnd.Next(0, 360),rnd.Next(0, 360));
+			var viewModel = new ScreenTwoViewModel();
 			this.GoTo<ScreenTwo> (viewModel);
 		}
 
