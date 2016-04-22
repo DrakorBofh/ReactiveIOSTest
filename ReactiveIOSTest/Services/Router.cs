@@ -49,6 +49,13 @@ namespace ReactiveIOSTest
 			this.GoTo<ScreenTwo> (viewModel);
 		}
 
+		public void GoToScreenFinal ()
+		{
+			var viewModel = new ScreenFinalViewModel();
+			this.GoTo<ScreenFinal> (viewModel);
+		}
+
+
 		private void GoTo<T> (params object[] args) where T : UIView
 		{
 			//DisposableHelper.Current.ClearAll ();

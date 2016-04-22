@@ -10,16 +10,15 @@ using System.Runtime.CompilerServices;
 using Cirrious.FluentLayouts.Touch;
 using Splat;
 
-namespace ReactiveIOSTest.Views
-{
 
-	public class ScreenTwo : BaseView<ScreenTwoViewModel>
+namespace ReactiveIOSTest
+{
+	public class ScreenFinal : BaseView<ScreenFinalViewModel>
 	{
 		Router route;
-		private UIButton nextScreenButton;
 		private UIButton backScreenButton;
 
-		public ScreenTwo ( Router route, CGRect frame, ScreenTwoViewModel viewModel) : base()
+		public ScreenFinal ( Router route, CGRect frame, ScreenFinalViewModel viewModel) : base()
 		{
 			this.route = route;
 			this.ViewModel = viewModel;
@@ -36,32 +35,22 @@ namespace ReactiveIOSTest.Views
 		protected void InitView()
 		{
 			this.Hidden = false;
-
 			backScreenButton = new NavButton ();
-			backScreenButton.SetTitle ("To Screen one", UIControlState.Normal);
-			backScreenButton.Events ().TouchUpInside.Subscribe ( _ => this.route.GoToScreenOne ());
-			nextScreenButton = new NavButton ();
-			nextScreenButton.SetTitle ("To next Screen", UIControlState.Normal);
-			nextScreenButton.Events ().TouchUpInside.Subscribe ( _ => this.route.GoToScreenFinal ());
+			backScreenButton.SetTitle ("To previous Screen", UIControlState.Normal);
+			backScreenButton.Events ().TouchUpInside.Subscribe ( _ => this.route.GoToScreenTwo ());
 
-			this.AddSubview (nextScreenButton);
 			this.AddSubview (backScreenButton);
 
 			this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 			var margin = 50;
 
 			this.AddConstraints (
-
-				nextScreenButton.AtTopOf  (this, margin),
-				nextScreenButton.WithSameCenterX (this),
-				nextScreenButton.WithRelativeWidth (this, 0.2f),
-
-				backScreenButton.Below  (nextScreenButton, margin),
+				backScreenButton.AtTopOf  (this, margin),
 				backScreenButton.WithSameCenterX (this),
 				backScreenButton.WithRelativeWidth (this, 0.3f)
 			);
 		}
-			
+
 	}
 
 }

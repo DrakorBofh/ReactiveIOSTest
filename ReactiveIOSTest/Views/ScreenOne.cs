@@ -14,7 +14,7 @@ namespace ReactiveIOSTest.Views
 {
 	public class ScreenOne : BaseView<ScreenOneViewModel>
 	{
-		Router route;
+		private Router route;
 		private UIButton nextScreenButton;
 		private UIButton backScreenButton;
 
